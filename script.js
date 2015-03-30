@@ -7,17 +7,17 @@ $(document).on('click', '#add-to-list', function addToList(event){
 	$("input#item").focus();
 	
 });*/
-$(document).on('submit', 'form', function addToList(event){
-	event.preventDefault();
+$(document).on('click', '#add-to-list', function addToList(event){
 	var item = $("input").val();
-	$("ol#items").append("<span class='label pending'>Pending</span>" + "<li>" + item + "</li>");
+	$("ol#items").append("<li>" + item + "<span class='label pending'>Pending</span></li>");
 	$("input#item").val("");
 	$("input#item").focus();
 	
 });
 
 $(document).on('click', '.pending', function addNewClass(){
-	$(this).parent().prepend("<span class='label success'>Done!</span>");
+	$(this).parent().addClass("completed");
+	$(this).parent().append("<span class='label success'>Done!</span>");
 	$(this).remove();
 });
 
